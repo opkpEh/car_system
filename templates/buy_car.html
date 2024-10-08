@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Buy Car</h1>
+{% if car %}
+<div class="card car-card">
+    <img src="{{ car.image }}" alt="{{ car.name }}">
+    <div class="car-info">
+        <h2>{{ car.make }} {{ car.model }}</h2>
+        <p><strong>Year:</strong> {{ car.year }}</p>
+        <p><strong>Price:</strong> ${{ car.price }}</p>
+        <p><strong>Mileage:</strong> {{ car.mileage }} miles</p>
+        <p><strong>Fuel Type:</strong> {{ car.fuel_type }}</p>
+        <p><strong>Transmission:</strong> {{ car.transmission }}</p>
+        <p>{{ car.description }}</p>
+        {% if car.available %}
+        <p>This car is now yours! Thank you for your purchase.</p>
+        {% else %}
+        <p>Sorry, this car is no longer available.</p>
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<p>Car not found.</p>
+{% endif %}
+{% endblock %}

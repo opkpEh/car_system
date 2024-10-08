@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Car Management System{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .navbar {
+            padding: 0.5rem 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .nav-link {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem !important;
+        }
+        .hero-section {
+            padding-top: 76px; /* Navbar height + extra space */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/api/placeholder/1920/600") center/cover no-repeat;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        .welcome-content {
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <i class="fas fa-car-side me-2"></i>CarMS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Browse Cars
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('available_cars') }}">Available Cars</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('new_cars') }}">New Arrivals</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#featured">Featured Cars</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Our Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light ms-2" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Default Welcome Section (can be overridden in child templates) -->
+        {% block hero %}
+        <section class="hero-section">
+            <div class="container">
+                <div class="welcome-content">
+                    <h1 class="display-4 mb-4">Welcome to CarMS</h1>
+                    <p class="lead mb-4">Discover your perfect ride from our extensive collection of premium vehicles</p>
+                    <a href="#featured" class="btn btn-primary btn-lg me-3">Explore Vehicles</a>
+                    <a href="{{ url_for('available_cars') }}" class="btn btn-outline-light btn-lg">View Inventory</a>
+                </div>
+            </div>
+        </section>
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer remains the same -->
+    <footer class="footer bg-dark text-light py-4">
+        <!-- ... (footer content remains unchanged) ... -->
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

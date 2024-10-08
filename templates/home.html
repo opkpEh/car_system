@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Car Management System{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <img src="{{ url_for('static', filename='hero_image.jpg') }}" alt="Car Hero Image" class="hero-image">
+    <div class="hero-content">
+        <h1>Welcome to Car Management System</h1>
+        <p>Your dream car awaits. Browse our collection and find the perfect ride for you.</p>
+        <a href="#featured" class="btn btn-primary">Explore Vehicles</a>
+    </div>
+</section>
+
+<!-- About Us -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <div class="card">
+            <p>
+                Welcome to our premier Car Management System, where your dream car awaits. We offer a wide selection of vehicles to suit every taste and budget. Our user-friendly platform allows you to browse, compare, and purchase cars with ease. Whether you're looking for a sleek sedan, a robust SUV, or an eco-friendly hybrid, we've got you covered. Our team of automotive experts is dedicated to providing you with the best car-buying experience possible. Explore our inventory today and find the perfect ride for your journey!
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <i class="fas fa-car-side fa-3x"></i>
+                <h3>Wide Selection</h3>
+                <p>Choose from a vast inventory of vehicles to find the perfect match for your needs.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-hand-holding-usd fa-3x"></i>
+                <h3>Easy Financing</h3>
+                <p>Flexible financing options to make your car purchase smooth and affordable.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-headset fa-3x"></i>
+                <h3>Expert Support</h3>
+                <p>Our team of experts is here to assist you every step of the way.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Vehicles -->
+<section id="featured" class="section">
+    <div class="container">
+        <h2 class="section-title">Featured Vehicles</h2>
+        <div class="car-grid">
+            {% for vehicle in featured_cars %}
+            <div class="car-card">
+                <img src="{{ vehicle.image }}" alt="{{ vehicle.name }}">
+                <div class="car-info">
+                    <h3>{{ vehicle.name }}</h3>
+                    <p>{{ vehicle.description }}</p>
+                    <p class="price"><strong>Price:</strong> ${{ "{:,.2f}".format(vehicle.price) }}</p>
+                    <a href="{{ url_for('buy_car', car_id=vehicle.id) }}" class="btn btn-secondary">View Details</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="{{ url_for('available_cars') }}" class="btn btn-primary">View All Vehicles</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="reviews-grid">
+            {% for review in reviews %}
+            <div class="review">
+                <p>"{{ review.content }}"</p>
+                <div class="star-rating">
+                    {% for _ in range(review.rating) %}
+                        <i class="fas fa-star"></i>
+                    {% endfor %}
+                    {% for _ in range(5 - review.rating) %}
+                        <i class="far fa-star"></i>
+                    {% endfor %}
+                </div>
+                <p><strong>{{ review.author }}</strong></p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Our Team -->
+<section id="team" class="section">
+    <div class="container">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            {% for member in team_members %}
+            <div class="team-member">
+                <img src="{{ url_for('static', filename=member.photo_url) }}" alt="{{ member.name }}">
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.position }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; {{ current_year }} Car Management System. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+{% endblock %}

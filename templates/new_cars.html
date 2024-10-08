@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>New Cars</h1>
+<div class="car-grid">
+    {% for car in new_cars %}
+    <div class="card car-card">
+        <img src="{{ car.image }}" alt="{{ car.name }}">
+        <div class="car-info">
+            <h2>{{ car.name }}</h2>
+            <p>Price: ${{ car.price }}</p>
+            <p>Coming soon!</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
