@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="section-title">Compare Cars</h2>
+
+    <form method="POST" class="compare-form">
+        <div class="selection-container">
+            <div class="form-group">
+                <label for="car1">Select First Car:</label>
+                <select name="car1" id="car1" required>
+                    <option value="">Choose a car</option>
+                    {% for car in cars %}
+                    <option value="{{ car.id }}">{{ car.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="car2">Select Second Car:</label>
+                <select name="car2" id="car2" required>
+                    <option value="">Choose a car</option>
+                    {% for car in cars %}
+                    <option value="{{ car.id }}">{{ car.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Compare</button>
+        </div>
+    </form>
+
+    {% if car1 and car2 %}
+    <div class="comparison-container">
+        <div class="car-comparison">
+            <div class="car-details">
+                <h3>{{ car1.name }}</h3>
+                <img src="{{ url_for('static', filename=car1.image) }}" alt="{{ car1.name }}">
+                <p class="price">Price: ${{ car1.price }}</p>
+                <p class="details">{{ car1.details }}</p>
+            </div>
+
+            <div class="car-details">
+                <h3>{{ car2.name }}</h3>
+                <img src="{{ url_for('static', filename=car2.image) }}" alt="{{ car2.name }}">
+                <p class="price">Price: ${{ car2.price }}</p>
+                <p class="details">{{ car2.details }}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

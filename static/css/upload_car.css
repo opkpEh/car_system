@@ -1,0 +1,163 @@
+/* Upload Car Form Styles */
+.upload-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--light-text);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--light-text);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(255, 214, 10, 0.2);
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.input-group {
+    position: relative;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-text);
+}
+
+.input-group input[type="number"] {
+    padding-left: 30px;
+}
+
+.file-upload-label {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--primary);
+    color: var(--dark-bg);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload-label:hover {
+    background: var(--primary-dark);
+}
+
+.file-upload-label i {
+    margin-right: 8px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#file-chosen {
+    margin-left: 10px;
+    color: var(--gray-text);
+}
+
+/* Compare Cars Styles */
+.compare-form {
+    margin-bottom: 40px;
+}
+
+.selection-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.comparison-container {
+    margin-top: 40px;
+}
+
+.car-comparison {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.car-details {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 30px;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.car-details:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.car-details img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.car-details .price {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--primary);
+    margin: 15px 0;
+}
+
+.car-details .details {
+    line-height: 1.8;
+    color: var(--gray-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .selection-container,
+    .car-comparison {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .car-details {
+        max-width: none;
+    }
+}

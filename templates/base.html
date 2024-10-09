@@ -58,6 +58,9 @@
                             <li><a class="dropdown-item" href="{{ url_for('available_cars') }}">Available Cars</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('new_cars') }}">New Arrivals</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ url_for('compare_cars') }}">Compare Cars</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('upload_car') }}">Upload Your Car</a></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#featured">Featured Cars</a></li>
                         </ul>
                     </li>
@@ -92,6 +95,14 @@
                     <p class="lead mb-4">Discover your perfect ride from our extensive collection of premium vehicles</p>
                     <a href="#featured" class="btn btn-primary btn-lg me-3">Explore Vehicles</a>
                     <a href="{{ url_for('available_cars') }}" class="btn btn-outline-light btn-lg">View Inventory</a>
+                    <div class="mt-3">
+                        <a href="{{ url_for('upload_car') }}" class="btn btn-success btn-lg me-3">
+                            <i class="fas fa-upload me-2"></i>Upload Your Car
+                        </a>
+                        <a href="{{ url_for('compare_cars') }}" class="btn btn-info btn-lg">
+                            <i class="fas fa-exchange-alt me-2"></i>Compare Cars
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -100,9 +111,33 @@
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Footer remains the same -->
+    <!-- Footer -->
     <footer class="footer bg-dark text-light py-4">
-        <!-- ... (footer content remains unchanged) ... -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="fas fa-car-side me-2"></i>CarMS</h5>
+                    <p>Your trusted partner in finding the perfect vehicle.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url_for('available_cars') }}" class="text-light">Available Cars</a></li>
+                        <li><a href="{{ url_for('upload_car') }}" class="text-light">Upload Your Car</a></li>
+                        <li><a href="{{ url_for('compare_cars') }}" class="text-light">Compare Cars</a></li>
+                        <li><a href="{{ url_for('new_cars') }}" class="text-light">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                        <i class="fas fa-map-marker-alt me-2"></i>123 Car Street<br>
+                        <i class="fas fa-phone me-2"></i>(123) 456-7890<br>
+                        <i class="fas fa-envelope me-2"></i>info@carms.com
+                    </address>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap JS Bundle with Popper -->
