@@ -11,8 +11,8 @@ with open('static/cars.json', 'r') as cars_list:
 with open('static/reviews.json', 'r') as review_list:
     reviews = json.load(review_list)
 
-with open('static/new_cars.json', 'r') as new_cars_list:
-    new_cars = json.load(new_cars_list)
+#with open('static/new_cars.json', 'r') as new_cars_list:
+#   new_cars = json.load(new_cars_list)
 
 @app.route('/')
 def home():
@@ -36,7 +36,23 @@ def buy_car(car_id):
 
 @app.route('/new_cars')
 def new_cars():
-
+    new_cars = [
+        {
+            "name": "Electric Car E",
+            "price": 40000,
+            "image": "https://images.unsplash.com/photo-1469285994282-454ceb49e63c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "name": "Hybrid Car F",
+            "price": 30000,
+            "image": "https://plus.unsplash.com/premium_photo-1686730540270-93f2c33351b6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "name": "Luxury Sedan G",
+            "price": 60000,
+            "image": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGx1eGFyeSUyMGNhciUyMGZ1bGwlMjBib2R5fGVufDB8fDB8fHww"
+        }
+    ]
     return render_template('new_cars.html', new_cars=new_cars)
 
 if __name__ == '__main__':
