@@ -44,7 +44,7 @@ cars = [
         "fuel_type": "Gasoline",
         "transmission": "Manual",
         "available": False,
-        "image": "https://images.unsplash.com/photo-1606054300676-1938d1562735?auto=format&fit=crop&q=80&w=800&h=600",
+        "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.hgmsites.net%2Fhug%2F2019-toyota-corolla_100648053_h.jpg&f=1&nofb=1&ipt=9f29f712d58abf33025d061fb2d8c8b690bbface54f77de5cf3f32df5534e140&ipo=images",
         "description": "This Volkswagen Golf is the ideal city car. Its compact size makes parking a breeze, while its efficient engine ensures great fuel economy. Perfect for the urban commuter."
     },
     {
