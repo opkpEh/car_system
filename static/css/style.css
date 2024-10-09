@@ -266,3 +266,68 @@ footer .social-icons a:hover {
         margin: 5px 0;
     }
 }
+
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 300%;
+    animation: slide 12s infinite;
+}
+
+.carousel-item {
+    flex: 1;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Slide Animation */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-content .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
